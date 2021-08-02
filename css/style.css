@@ -82,9 +82,9 @@ main{
     }
 }
 @media screen and (max-width:494px) {
-    main{
-       display: block;
-       width: 90%;
+    main{    
+        width: 90%;
+        grid-template-columns: 100%;
     }
 }
 
