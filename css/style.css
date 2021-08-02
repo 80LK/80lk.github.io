@@ -50,3 +50,44 @@
 .header .nav .fa-twitch{
     color: #6441a5
 }
+.header .nav .fa-vk{
+    color: #2787F5
+}
+
+main{
+    width: 1000px;
+    margin: 1em auto;
+
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-gap: 1em;
+}
+
+.project-item{
+    border: 1px solid var(--input-border);
+}
+.project-item--head{
+    padding: .5em 1em .2em;
+    border-bottom: 1px solid var(--input-border);
+}
+.project-item--image{
+    display: block;
+    width: 100%;
+    aspect-ratio: 1;
+}
+.project-item--footer{
+    padding: .2em 1em .5em;
+    border-top: 1px solid var(--input-border);
+}
+
+.project-item--head h2{margin: 0;}
+
+.btn.btn__square{
+    aspect-ratio: 1;
+}
+
+.project-item--footer .btn{
+    padding: .3em;
+    height: 32px;
+    min-width: 32px;
+}
