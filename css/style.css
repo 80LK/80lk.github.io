@@ -118,8 +118,27 @@ main{
     padding: .3em;
     height: 32px;
     min-width: 32px;
+    margin: 0;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .badges-panel{
     margin-bottom: .5em;
+}
+.badge{
+    margin-bottom: .1em;
+    cursor: default;
+}
+
+.badge.vk{
+    background-color: #2787F5
+}
+
+
+.btn.disabled{
+    cursor:not-allowed;
+    background-color: var(--muted);
+    border-color: var(--muted);
 }
