@@ -1,50 +1,56 @@
 .header{
     border-bottom: 1px solid var(--input-border);
     position: relative;
+    text-align: center;
 }
-
 .header.header__bg{
     background-image: url(../imgs/bg_head.jpg);
     background-attachment: fixed;
     background-size: cover;
     color:white;
     min-height: 250px;
+    border-bottom: 0;
 }
 
-.header.header__h100{
-    height: 100vh;
-}
 
 .header--content{
     padding: 1em;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    align-items: center;
+    min-height: 250px;
 }
 
+.header--content.header__h100{
+    height: 100vh;
+}
 .header--content.header--content__dark-overlay{
     background-color: rgba(0, 0, 0, 0.6);
 }
 
 .nav{
     list-style: none;
-    display: flex;
-    justify-content: space-between;
     font-size: 1em;
+    display: flex;
+    grid-gap: 15px;
 }
 
+.nav li{margin-bottom: 0;}
 .nav .btn{
     font-size: 1.2em;
     transition: padding .3s ease;
+    margin: 0;
 }
 .nav .btn:hover{
     padding-left: 50px;
     padding-right: 50px;
+}
+
+@media screen and (max-width: 636px){
+    .nav{
+        flex-direction: column;
+    }
 }
 
 .header .nav .fa-twitch{
@@ -67,6 +73,18 @@ main{
     main{
         width: 705px;
         grid-template-columns: 225px 225px 225px;
+    }
+}
+@media screen and (max-width:734px) {
+    main{
+        width: 465px;
+        grid-template-columns: 225px 225px;
+    }
+}
+@media screen and (max-width:494px) {
+    main{
+       display: block;
+       width: 90%;
     }
 }
 
