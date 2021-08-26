@@ -26,7 +26,7 @@
     height: 100vh;
 }
 .header--content.header--content__dark-overlay{
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.75);
 }
 
 .nav{
@@ -42,10 +42,22 @@
     transition: padding .3s ease;
     margin: 0;
 }
-.nav .btn:hover{
-    padding-left: 50px;
-    padding-right: 50px;
+.btn.btn-sized{
+    display: flex;
 }
+.btn.btn-sized .btn-sized--inner{
+    display: inline-block;
+    width: 0;
+    vertical-align: bottom;
+    text-align: right;
+    overflow: hidden;
+    transition: width .2s;
+    white-space: nowrap;
+}
+.btn.btn-sized:hover .btn-sized--inner{
+    width: calc(.2em + var(--width-text));
+}
+
 
 @media screen and (max-width: 636px){
     .nav{
@@ -53,11 +65,21 @@
     }
 }
 
-.header .nav .fa-twitch{
-    color: #6441a5
+
+.btn-github,
+.btn-github:hover{
+    border-color:  #161b22;
+    background-color: #161b22
 }
-.header .nav .fa-vk{
-    color: #2787F5
+.btn-twitch,
+.btn-twitch:hover{
+    border-color:  #6441a5;
+    background-color: #6441a5
+}
+.btn-vk,
+.btn-vk:hover{
+    border-color:  #2787F5;
+    background-color: #2787F5
 }
 
 main{
