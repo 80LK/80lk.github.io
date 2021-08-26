@@ -51,7 +51,7 @@
     vertical-align: bottom;
     text-align: right;
     overflow: hidden;
-    transition: width .2s;
+    transition: width .2s ease;
     white-space: nowrap;
 }
 .btn.btn-sized:hover .btn-sized--inner{
