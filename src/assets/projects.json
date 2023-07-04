@@ -187,7 +187,7 @@
 		"description": "Anime-бот для развлечения.",
 		"tags": [
 			"bot",
-			"bot",
+			"anime",
 			"vk"
 		],
 		"icon": "/imgs/abot.jpg",
@@ -201,6 +201,37 @@
 				"icon": "fa:brands:vk",
 				"color": "#0077ff",
 				"href": "https://vk.com/abot_wt"
+			}
+		]
+	},
+	{
+		"name": "SAMMI DA Triggers",
+		"description": "SAMMI-Расширение, добавляющий тригер донатов из DonationAlerts.",
+		"tags": [
+			"sammi",
+			"DonationAlert",
+			"stream"
+		],
+		"links": [
+			{
+				"icon": "github",
+				"color": "#161b22",
+				"href": "https://github.com/80LK/SAMMI-DA-Trigers"
+			}
+		]
+	},
+	{
+		"name": "DA-GSA",
+		"description": "Утилита для получения адреса сокета DA.",
+		"tags": [
+			"DonationAlert",
+			"stream"
+		],
+		"links": [
+			{
+				"icon": "github",
+				"color": "#161b22",
+				"href": "https://github.com/80LK/DA-GSA"
 			}
 		]
 	}

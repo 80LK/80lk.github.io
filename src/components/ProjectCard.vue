@@ -19,15 +19,18 @@ defineProps<ProjectInfo>()
 		<h2 class="card--title">{{ name }}</h2>
 		<img class="card--image" :src="icon ? icon : '/imgs/project_placeholder.png'" />
 		<div class="card--content">
-			{{ description }}
-			<div class="card--tags">
-				<Tag v-for="tag in tags" :tag="tag"></Tag>
+			<div class="card--description">
+				{{ description }}
 			</div>
-			<div class="card--btns">
-				<Btn v-for="{ title, icon, href, color, disabled } in links" :color="color" :title="title" :icon="icon"
-					:href="href" :disabled="disabled">
-				</Btn>
-
+			<div class="card--content__wrapper">
+				<div class="card--tags">
+					<Tag v-for="tag in tags" :tag="tag"></Tag>
+				</div>
+				<div class="card--btns">
+					<Btn v-for="{ title, icon, href, color, disabled } in links" :color="color" :title="title" :icon="icon"
+						:href="href" :disabled="disabled">
+					</Btn>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -71,7 +74,7 @@ defineProps<ProjectInfo>()
 	height: 100%;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-around;
+	justify-content: space-between;
 	grid-gap: 0.4em;
 }
 
@@ -80,6 +83,7 @@ defineProps<ProjectInfo>()
 	flex-wrap: wrap;
 	flex-direction: row;
 	grid-gap: 5px;
+	margin-bottom: 10px;
 }
 
 .tag {
