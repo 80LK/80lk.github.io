@@ -1,0 +1,25 @@
+[
+	{
+		"title": "Проекты",
+		"icon": "briefcase",
+		"href": "/projects"
+	},
+	{
+		"title": "GitHub",
+		"icon": "github",
+		"color": "#161b22",
+		"href": "https://github.com/80LK"
+	},
+	{
+		"title": "Twitch",
+		"icon": "twitch",
+		"color": "#6441a5",
+		"href": "https://www.twitch.tv/80lk"
+	},
+	{
+		"title": "VK",
+		"icon": "fa:brands:vk",
+		"color": "#0077ff",
+		"href": "https://vk.com/yu_80lk"
+	}
+]

@@ -1,0 +1,202 @@
+[
+	{
+		"name": "WorldEdit",
+		"description": "Модификация для простого изменения мира. Подходит людям, занимающимся постройкой карт.",
+		"tags": [
+			"mcpe",
+			"InnerCore",
+			"mod"
+		],
+		"icon": "/imgs/worldedit.png",
+		"links": [
+			{
+				"icon": "github",
+				"color": "#161b22",
+				"href": "https://github.com/Wolf-Team/WorldEdit"
+			},
+			{
+				"title": "ICMods",
+				"href": "https://icmods.mineprogramming.org/mod?id=295"
+			}
+		]
+	},
+	{
+		"name": "Homes",
+		"description": "Модификация добовляет в Minecraft точку дома, к которой можно телепортироваться.",
+		"tags": [
+			"mcpe",
+			"InnerCore",
+			"mod"
+		],
+		"icon": "/imgs/homes.png",
+		"links": [
+			{
+				"icon": "github",
+				"color": "#161b22",
+				"href": "https://github.com/Wolf-Team/Homes"
+			},
+			{
+				"title": "ICMods",
+				"href": "https://icmods.mineprogramming.org/mod?id=390"
+			}
+		]
+	},
+	{
+		"name": "RetroWave",
+		"description": "Модификация позволит вам окунуться в эпоху 70-80х годов.",
+		"tags": [
+			"mcpe",
+			"InnerCore",
+			"mod"
+		],
+		"icon": "/imgs/retorwave.png",
+		"links": [
+			{
+				"icon": "github",
+				"color": "#161b22",
+				"href": "https://github.com/Wolf-Team/Gray"
+			},
+			{
+				"title": "ICMods",
+				"href": "https://icmods.mineprogramming.org/mod?id=662"
+			},
+			{
+				"title": "Автор текстур",
+				"icon": "fa:brands:vk",
+				"color": "#0077ff",
+				"href": "https://vk.com/id432054893"
+			}
+		]
+	},
+	{
+		"name": "RW — AM",
+		"description": "\"RetroWave — Additional Music\" — Аддон для RetroWave, добавляющий новые пластинки и музыку для радио",
+		"tags": [
+			"mcpe",
+			"InnerCore",
+			"mod",
+			"addon"
+		],
+		"icon": "/imgs/retorwave-am.png",
+		"links": [
+			{
+				"icon": "github",
+				"color": "#161b22",
+				"href": "https://github.com/80LK/RetroWave---Additional-Music"
+			},
+			{
+				"title": "ICMods",
+				"href": "https://icmods.mineprogramming.org/mod?id=663"
+			}
+		]
+	},
+	{
+		"name": "Structures",
+		"description": "Библиотека, упрощающая работу со структурами.",
+		"tags": [
+			"mcpe",
+			"InnerCore",
+			"library"
+		],
+		"links": [
+			{
+				"icon": "github",
+				"color": "#161b22",
+				"href": "https://github.com/Wolf-Team/Structures"
+			}
+		]
+	},
+	{
+		"name": "RecipeTileEntity",
+		"description": "Библиотека, упрощающая создание верстаков и печей.",
+		"tags": [
+			"mcpe",
+			"InnerCore",
+			"library"
+		],
+		"links": [
+			{
+				"icon": "github",
+				"color": "#161b22",
+				"href": "https://github.com/Wolf-Team/RecipeTileEntity"
+			}
+		]
+	},
+	{
+		"name": "SoundAPI",
+		"description": "Библиотека, которая упрощает работу со звуком в игре.",
+		"tags": [
+			"mcpe",
+			"InnerCore",
+			"library"
+		],
+		"links": [
+			{
+				"icon": "github",
+				"color": "#161b22",
+				"href": "https://github.com/Wolf-Team/SoundAPI"
+			}
+		]
+	},
+	{
+		"name": "ShootLib",
+		"description": "Библиотека для создания оружия в InnerCore.",
+		"tags": [
+			"mcpe",
+			"InnerCore",
+			"library"
+		],
+		"icon": "/imgs/shootlib.png",
+		"links": [
+			{
+				"icon": "github",
+				"color": "#161b22",
+				"href": "https://github.com/Wolf-Team/ShootLib"
+			}
+		]
+	},
+	{
+		"name": "ICModsBot",
+		"description": "Бот, отслеживающий загрузки на ICMods.",
+		"tags": [
+			"mcpe",
+			"InnerCore",
+			"bot",
+			"vk"
+		],
+		"icon": "/imgs/icmodsbot.jpg",
+		"links": [
+			{
+				"icon": "github",
+				"color": "#161b22",
+				"href": "https://github.com/Wolf-Team/ICModsBot"
+			},
+			{
+				"icon": "fa:brands:vk",
+				"color": "#0077ff",
+				"href": "https://vk.com/icmodsbot"
+			},
+			{
+				"title": "ICMods",
+				"href": "https://icmods.mineprogramming.org/"
+			}
+		]
+	},
+	{
+		"name": "A-Bot",
+		"description": "Anime-бот для развлечения.",
+		"tags": [
+			"bot",
+			"bot",
+			"vk"
+		],
+		"icon": "/imgs/abot.jpg",
+		"links": [
+			{
+				"icon": "fa:brands:vk",
+				"color": "#0077ff",
+				"href": "https://vk.com/abot_wt"
+			}
+		]
+	}
+]
