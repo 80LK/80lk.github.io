@@ -193,6 +193,11 @@
 		"icon": "/imgs/abot.jpg",
 		"links": [
 			{
+				"icon": "github",
+				"color": "#161b22",
+				"disabled": true
+			},
+			{
 				"icon": "fa:brands:vk",
 				"color": "#0077ff",
 				"href": "https://vk.com/abot_wt"

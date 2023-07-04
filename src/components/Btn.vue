@@ -19,6 +19,7 @@ export default {
 	computed: {
 		classList() {
 			const classes = ['btn'];
+			if (this.disabled) classes.push('disabled')
 			if (this.sized) classes.push('btn-sized');
 			return classes;
 		},
@@ -34,19 +35,19 @@ export default {
 </script>
 
 <template>
-	<RouterLink v-if="href && href.startsWith('/')" :to="href" :class="classList" :style="style">
+	<RouterLink v-if="href && href.startsWith('/')" :to="href" :class="classList" :style="style" :disabled="disabled">
 		<Icon v-if="icon" :icon="icon" />
 		<span class="btn--inner" ref="inner">
 			{{ title }}
 		</span>
 	</RouterLink>
-	<a v-else-if="href" target="_blank" :class="classList" :style="style" :href="href">
+	<a v-else-if="href" target="_blank" :class="classList" :style="style" :href="href" :disabled="disabled">
 		<Icon v-if="icon" :icon="icon" />
 		<span class="btn--inner" ref="inner">
 			{{ title }}
 		</span>
 	</a>
-	<button v-else :class="classList" :style="style">
+	<button v-else :class="classList" :style="style" :disabled="disabled">
 		<Icon v-if="icon" :icon="icon" />
 		<span class="btn--inner" ref="inner">
 			{{ title }}
@@ -60,6 +61,7 @@ export default {
 	text-decoration: none;
 	display: inline-block;
 	padding: 6px 12px;
+	font-size: 1em;
 	font-weight: normal;
 	cursor: pointer;
 	outline: none;
@@ -125,6 +127,12 @@ export default {
 .btn .btn--wave.btn--wave--hidding {
 	opacity: 0;
 	transition: opacity .5s ease;
+}
+
+.btn.disabled {
+	border-color: var(--muted, gray);
+	background: var(--muted, gray);
+	cursor: not-allowed;
 }
 
 @keyframes button-wave {

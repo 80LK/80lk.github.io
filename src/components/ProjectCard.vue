@@ -24,7 +24,8 @@ defineProps<ProjectInfo>()
 				<Tag v-for="tag in tags" :tag="tag"></Tag>
 			</div>
 			<div class="card--btns">
-				<Btn v-for="{ title, icon, href, color } in links" :color="color" :title="title" :icon="icon" :href="href">
+				<Btn v-for="{ title, icon, href, color, disabled } in links" :color="color" :title="title" :icon="icon"
+					:href="href" :disabled="disabled">
 				</Btn>
 
 			</div>
