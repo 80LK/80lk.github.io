@@ -1,0 +1,70 @@
+* {
+	font-family: Arial;
+	box-sizing: border-box;
+	/* vertical-align: middle; */
+}
+
+html {
+	/* background: #050605; */
+	color: #444;
+}
+
+body {
+	margin: 0;
+	font-size: 16px;
+
+}
+
+
+a {
+	vertical-align: baseline;
+	text-decoration: none;
+	color: inherit;
+	font-weight: bold;
+	border-bottom: 1px dashed var(--general, #FF8100);
+	transition: color 0.3s ease;
+}
+
+a:hover {
+	color: var(--general, #FF8100);
+}
+
+h1 {
+	font-size: 2.6em;
+}
+
+h2 {
+	font-size: 2.3em;
+}
+
+h3 {
+	font-size: 2em;
+}
+
+h4 {
+	font-size: 1.6em;
+}
+
+h5 {
+	font-size: 1.3em;
+}
+
+h6 {
+	font-size: 1em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+	margin-bottom: .5em;
+}
+
+h4,
+h5,
+h6 {
+	margin-bottom: 1em;
+}

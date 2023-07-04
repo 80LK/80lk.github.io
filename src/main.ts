@@ -1,24 +1,10 @@
-import Vue from 'vue'
+import { createApp } from 'vue'
+import "@mdi/font/css/materialdesignicons.min.css";
+import "@fortawesome/fontawesome-free/css/all.min.css"
+import './style.css'
 import App from './App.vue'
+import router from './routes/router';
 
-import Vuetify from "vuetify";
-import 'vuetify/dist/vuetify.min.css';
-import './assets/css/materialdesignicons.min.css'
-import './assets/fonts/Roboto-Regular.ttf'
-
-Vue.use(Vuetify);
-const vuetify = new Vuetify({
-	theme: {
-		themes: {
-			light: { primary: "#FF8000" },
-			dark: { primary: "#FF8000" }
-		},
-	}
-});
-
-new Vue({
-	vuetify,
-	// store,
-	// router,
-	render: h => h(App),
-}).$mount('#app')
+createApp(App)
+	.use(router)
+	.mount('#app')
