@@ -29,6 +29,7 @@ defineProps<HeadProps>()
 .head {
 	background-attachment: fixed;
 	background-size: cover;
+	background-position-x: center;
 	color: white;
 	border-bottom: 0;
 	min-height: 250px;
