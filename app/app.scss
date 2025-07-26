@@ -1,0 +1,27 @@
+@use '~/scss/fonts/index';
+@use '~/scss/colors' as colors;
+
+:root {
+	interpolate-size: allow-keywords;
+	font-family: AnonymousPro, 'Times New Roman';
+	text-indent: 1px;
+	line-height: 1.1;
+}
+
+* {
+	margin: 0;
+	box-sizing: border-box;
+	font-family: inherit;
+	text-indent: inherit;
+	line-height: inherit;
+}
+
+body {
+	background-color: colors.$background;
+	color: colors.$foreground;
+}
+
+a {
+	color: colors.$foreground;
+	text-decoration: none;
+}

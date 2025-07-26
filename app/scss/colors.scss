@@ -1,0 +1,9 @@
+@use 'sass:color';
+
+$primary-color: #ff8000;
+
+$background: #222;
+$second-background: #111;
+$foreground: #fff;
+
+$border: color.adjust($foreground, $lightness: -30%);
