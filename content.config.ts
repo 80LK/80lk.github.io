@@ -7,9 +7,16 @@ export default defineContentConfig({
 			type: 'page',
 			source: '**/*.md',
 			schema: z.object({
-				icon: z.string().url(),
-				tags: z.nativeEnum(ProjectTag).array(),
-				release: z.date()
+				icon: z.string().url().optional(),
+				tags: z.nativeEnum(ProjectTag).array().optional(),
+				release: z.date().optional(),
+				links: z.object({
+					href: z.string(),
+					card: z.boolean().default(false),
+					title: z.string().optional(),
+					icon: z.string().optional(),
+					color: z.string().optional()
+				}).array().optional()
 			})
 		})
 	}

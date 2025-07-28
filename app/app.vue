@@ -50,6 +50,21 @@ const app = useAppConfig();
         hsl(52deg 100% 71%) 90%,
         hsl(56deg 100% 74%) 94%,
         hsl(60deg 100% 77%) 99%);
+
+    a {
+      position: relative;
+      bottom: 0;
+
+      @media (prefers-reduced-motion: no-preference) {
+        transition: bottom .3s ease;
+      }
+    }
+
+    a:hover,
+    a:focus {
+      bottom: 5px;
+    }
+
   }
 }
 </style>

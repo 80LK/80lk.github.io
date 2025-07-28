@@ -11,11 +11,15 @@ interface BtnProps {
 
 
 
-const { icon, slide, href, to } = defineProps<BtnProps>();
-const { prepend } = useSlots();
+const { icon, slide, href, to, text } = defineProps<BtnProps>();
+const { prepend, default: defaultSlot } = useSlots();
 const { onClick } = useAttrs();
 
-const enabledSlide = computed(() => slide && !!(icon || prepend));
+const hasIcon = computed(() => !!(icon || prepend))
+const hasText = computed(() => !!(text || defaultSlot))
+
+const enabledSlide = computed(() => slide && hasIcon.value && hasText.value);
+
 const tag = computed(() => href ? 'a' : to ? 'nuxt-link' : 'button');
 const binds = computed(() => {
 	switch (tag.value) {
@@ -40,10 +44,10 @@ function click(event: PointerEvent) {
 <template>
 	<component :is="tag == 'nuxt-link' ? NuxtLink : tag" v-bind="binds"
 		:class="[$style.btn, { [$style.slide]: enabledSlide }]" @click="click">
-		<slot name="prepend" v-if="prepend || icon">
+		<slot name="prepend" v-if="hasIcon">
 			<Icon :name="icon" v-if="icon" />
 		</slot>
-		<span :class="$style.inner">
+		<span :class="$style.inner" v-if="hasText">
 			<slot>{{ text }}</slot>
 		</span>
 		<span :class="$style.overlay" />
@@ -54,11 +58,13 @@ function click(event: PointerEvent) {
 @use '~/scss/colors.scss' as *;
 
 .btn {
+	--gap: .3em;
+
 	display: inline-flex;
 	align-items: center;
-	background-color: $primary-color;
+	background-color: $primary;
 	padding: .3em .5em;
-	gap: .2em;
+	gap: var(--gap);
 	position: relative;
 	vertical-align: middle;
 	color: $foreground;
@@ -68,6 +74,9 @@ function click(event: PointerEvent) {
 	cursor: pointer;
 	overflow: hidden;
 	max-width: 100%;
+	text-transform: uppercase;
+	text-align: center;
+	min-width: fit-content;
 
 	.overlay {
 		position: absolute;
@@ -80,9 +89,9 @@ function click(event: PointerEvent) {
 
 		opacity: 0;
 		background-color: white;
-		transition: opacity .3s ease;
 	}
 
+	&:focus .overlay,
 	&:hover .overlay {
 		opacity: .3;
 	}
@@ -94,18 +103,31 @@ function click(event: PointerEvent) {
 
 	&.slide {
 		gap: 0px;
-		transition: gap .3s ease;
 
 		.inner {
 			width: 0;
-			transition: width .3s ease;
 		}
 
-		&:hover {
-			gap: .2em;
+		&:hover,
+		&:focus {
+			gap: var(--gap);
 
 			.inner {
 				width: auto;
+			}
+		}
+	}
+
+	@media (prefers-reduced-motion: no-preference) {
+		.overlay {
+			transition: opacity .3s ease;
+		}
+
+		&.slide {
+			transition: gap .3s ease;
+
+			.inner {
+				transition: width .3s ease;
 			}
 		}
 	}

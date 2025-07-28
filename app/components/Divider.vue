@@ -12,10 +12,12 @@ defineProps<{ vertical?: boolean }>()
 .divider {
 	width: 100%;
 	height: 1px;
+	box-sizing: content-box;
+	position: relative;
 
 	background-color: $border;
 
-	.vertical {
+	&.vertical {
 		width: 1px;
 		height: 100%;
 	}

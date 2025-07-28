@@ -30,6 +30,12 @@ export default defineAppConfig<AppConfig>({
 			icon: 'mdi:telegram',
 			title: 'Telegram',
 			href: 'https://t.me/tv80lk'
+		},
+		{
+			color: "#000000",
+			icon: 'mdi:steam',
+			title: 'steam',
+			href: 'https://steamcommunity.com/id/80lk/'
 		}
 	] as Link[]
 })

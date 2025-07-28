@@ -1,6 +1,14 @@
 <script setup lang="ts">
+interface Link {
+	icon?: string;
+	title?: string;
+	href: string;
+	card?: boolean;
+	color?: string;
+}
+const { links } = defineProps<{ title: string; description: string; icon?: string, path: string; tags?: string[], links?: Link[] }>()
 
-defineProps<{ title: string; description: string; icon?: string, path: string }>()
+const preparedLinks = computed(() => links?.filter(link => link.card && (link.title || link.icon)) ?? []);
 </script>
 
 <template>
@@ -16,8 +24,13 @@ defineProps<{ title: string; description: string; icon?: string, path: string }>
 			<span :class="$style.wrapper">{{ description }}</span>
 		</div>
 		<div :class="$style.block">
-			<div :class="$style.line">Tags</div>
-			<div :class="$style.line">Links</div>
+			<div :class="$style.line" v-if="tags && tags.length > 0">
+				<badge v-for="tag of tags" :tag="tag" />
+			</div>
+			<div :class="$style.line" v-if="preparedLinks.length > 0">
+				<btn v-for="link of preparedLinks" :icon="link.icon" :text="link.title" :href="link.href"
+					:style="{ backgroundColor: link.color }" />
+			</div>
 		</div>
 	</div>
 </template>
@@ -71,9 +84,16 @@ defineProps<{ title: string; description: string; icon?: string, path: string }>
 
 	.block {
 		padding: 0 .5em .5em;
+		display: flex;
+		flex-direction: column;
+		gap: .5em;
+		justify-content: space-between;
 
 		.line {
 			overflow: hidden;
+			display: flex;
+			gap: .2em;
+			flex-wrap: wrap;
 		}
 	}
 }

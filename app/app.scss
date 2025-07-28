@@ -2,18 +2,23 @@
 @use '~/scss/colors' as colors;
 
 :root {
-	interpolate-size: allow-keywords;
 	font-family: AnonymousPro, 'Times New Roman';
 	text-indent: 1px;
 	line-height: 1.1;
+
+	@media (prefers-reduced-motion: no-preference) {
+		interpolate-size: allow-keywords;
+	}
 }
 
 * {
 	margin: 0;
+	padding: 0;
 	box-sizing: border-box;
 	font-family: inherit;
 	text-indent: inherit;
 	line-height: inherit;
+	outline: none;
 }
 
 body {
@@ -24,4 +29,14 @@ body {
 a {
 	color: colors.$foreground;
 	text-decoration: none;
+}
+
+input {
+	border: none;
+	background-color: transparent;
+	outline: none;
+	color: inherit;
+	font-size: 1em;
+	width: 100%;
+	cursor: inherit;
 }
