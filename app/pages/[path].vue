@@ -28,6 +28,14 @@ useSeoMeta({
 	float: left;
 	margin-right: 1em;
 	margin-bottom: 1em;
+
+	@media screen and (max-width: 465px) {
+		display: block;
+		margin-inline: auto;
+		float: none;
+		width: 100%;
+		max-width: 250px;
+	}
 }
 
 .block {
