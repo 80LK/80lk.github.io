@@ -18,12 +18,38 @@ const preparedItems = computed(() => items.map((e) => typeof e == "string" ? { l
 const selectedValue = computed(() => value.value ? preparedItems.value.find(e => e.value == value.value)?.label : null);
 
 function toggle() {
-	focus.value = isOpen.value = !isOpen.value;
+	isOpen.value = !isOpen.value;
+	if (isOpen.value) focus.value = true;
+}
+function close() {
+	isOpen.value = false;
 }
 function select(index: number) {
+	if (!isOpen.value || index == -1) return;
+
 	const newValue = preparedItems.value[index]?.value;
 	value.value = value.value == newValue ? null : newValue;
 	isOpen.value = false;
+}
+enum Direction {
+	UP = -1,
+	NONE = 0,
+	DOWN = 1
+}
+function moveCursor(direction: Direction) {
+	if (!isOpen.value) return;
+
+	const maxIndex = preparedItems.value.length - 1;
+
+	switch (direction) {
+		case Direction.UP:
+			cursor.value = (cursor.value <= 0 ? maxIndex : cursor.value - 1);
+			break;
+
+		case Direction.DOWN:
+			cursor.value = (cursor.value >= maxIndex ? 0 : cursor.value + 1);
+			break;
+	}
 }
 
 function blur() {
@@ -33,31 +59,31 @@ function blur() {
 enum KeycodeControl {
 	ArrowDown = 'ArrowDown',
 	ArrowUp = 'ArrowUp',
+
+	KeyW = 'KeyW',
+
+	KeyS = 'KeyS',
+
 	Space = 'Space',
 	Enter = 'Enter',
 	Escape = 'Escape',
 }
 
 function onKeydown(event: KeyboardEvent) {
+	console.log(event.code);
 	if (!(event.code in KeycodeControl)) return;
 
 	switch (event.code) {
 		case KeycodeControl.ArrowDown:
-			cursor.value++;
-			if (cursor.value >= preparedItems.value.length) cursor.value = 0;
-			break;
+		case KeycodeControl.KeyS: moveCursor(Direction.DOWN); break;
+
 		case KeycodeControl.ArrowUp:
-			cursor.value--;
-			if (cursor.value < 0) cursor.value = preparedItems.value.length - 1;
-			break;
+		case KeycodeControl.KeyW: moveCursor(Direction.UP); break;
 
 		case KeycodeControl.Space: toggle(); break;
 		case KeycodeControl.Escape: close(); break;
 
-		case KeycodeControl.Enter:
-			if (cursor.value != -1) select(cursor.value);
-			break;
-
+		case KeycodeControl.Enter: select(cursor.value); break;
 	}
 }
 </script>
