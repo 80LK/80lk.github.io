@@ -7,5 +7,23 @@ export default defineNuxtConfig({
   modules: ['@nuxt/content', '@nuxt/icon'],
   nitro: {
     preset: 'github-pages'
-  }
+  },
+  icon: {
+    serverBundle: false,
+    clientBundle: {
+      icons: [
+        'mdi:tag',
+        'mdi:magnify',
+        'mdi:menu-down',
+        'mdi:close-circle',
+        'mdi:code-braces',
+
+        'mdi:github',
+        'mdi:twitch',
+        'mdi:telegram',
+        'mdi:steam',
+      ],
+      scan: true
+    }
+  },
 })

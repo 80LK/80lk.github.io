@@ -17,7 +17,7 @@ const preparedLinks = computed(() => links?.filter(link => link.card && (link.ti
 			<div :class="$style.title">{{ title }}</div>
 			<img :class="$style.image" :src="icon" v-if="icon" />
 			<div :class="$style.image" v-else>
-				<Icon :class="$style.icon" name="uil:brackets-curly" />
+				<Icon :class="$style.icon" name="mdi:code-braces" />
 			</div>
 		</nuxt-link>
 		<div :class="$style.description">
