@@ -1,6 +1,6 @@
 <script setup lang="ts">
-const { data: projects } = await useAsyncData(() => queryCollection('projects').order('release', 'DESC').all());
-const { data: tags } = await useAsyncData(async () => Array.from((await queryCollection('projects').select('tags').all()).reduce((r, e) => { e.tags?.forEach(tag => r.add(tag)); return r; }, new Set<string>())));
+const { data: projects } = await useAsyncData('projects', () => queryCollection('projects').order('release', 'DESC').all());
+const { data: tags } = await useAsyncData('tags', async () => Array.from((await queryCollection('projects').select('tags').all()).reduce((r, e) => { e.tags?.forEach(tag => r.add(tag)); return r; }, new Set<string>())));
 
 const search = ref('');
 const tag = ref('');
@@ -25,6 +25,12 @@ async function update() {
 	loading.value = false;
 }
 const debouncedUpdate = debounce(update, 300);
+const app = useAppConfig();
+
+useSeoMeta({
+	title: app.title,
+	description: app.description ?? app.title
+})
 </script>
 
 <template>

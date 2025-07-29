@@ -7,6 +7,7 @@ interface Link {
 
 interface AppConfig {
 	title: string;
+	description?: string;
 	links?: Link[]
 }
 
