@@ -67,8 +67,8 @@ function onKeydown(event: KeyboardEvent) {
 		@blur="blur" @keydown="onKeydown" ref="wrapper">
 		<field v-bind="props" v-model:focus="focus" v-model="value" :class="$style.field" @click="toggle"
 			@focus="$input?.focus()" @blur="$input?.blur()">
-			<template #default>
-				<input :value="selectedValue" disabled style="pointer-events: none;" />
+			<template #default="{ name }">
+				<input :value="selectedValue" :id="name" :name="name" disabled style="pointer-events: none;" />
 			</template>
 			<template #append>
 				<Icon name="mdi:menu-down" :class="$style.button" />
