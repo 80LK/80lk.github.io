@@ -47,7 +47,8 @@ useSeoMeta({
 		</text-field>
 	</Container>
 
-	<Container v-if="loading" :class="$style.loading">loading...</Container>
+	<Container v-if="loading" :class="$style.loading">Загрузка...</Container>
+	<Container v-else-if="projects?.length == 0" :class="$style.loading">Нет данных</Container>
 	<Grid v-else>
 		<ProjectCard v-for="project in projects" :to="project.path" :key="project.path" v-bind="project" />
 	</Grid>
