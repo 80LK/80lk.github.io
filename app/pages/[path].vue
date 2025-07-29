@@ -1,6 +1,10 @@
 <script setup lang="ts">
-const route = useRoute();
-const { data: project } = await useAsyncData(route.path, () => queryCollection('projects').path(route.path).first());
+function getFirst<T>(value: T | T[] | undefined): T | undefined {
+	return Array.isArray(value) ? value[0] : value;
+}
+
+const path = '/' + (getFirst(useRoute().params.path) ?? '');
+const { data: project } = await useAsyncData(path, () => queryCollection('projects').path(path).first());
 
 useSeoMeta({
 	title: project.value?.title + " | " + useAppConfig().title,
