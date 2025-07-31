@@ -9,17 +9,17 @@ interface Link {
 const { links } = defineProps<{ title: string; description: string; icon?: string, path: string; tags?: string[], links?: Link[] }>()
 
 const preparedLinks = computed(() => links?.filter(link => link.card && (link.title || link.icon)) ?? []);
+const focus = ref(false);
 </script>
 
 <template>
-	<div :class="$style.card">
-		<nuxt-link :to="path">
-			<div :class="$style.title">{{ title }}</div>
-			<img :class="$style.image" :src="icon" v-if="icon" />
-			<div :class="$style.image" v-else>
-				<Icon :class="$style.icon" name="mdi:code-braces" />
-			</div>
-		</nuxt-link>
+	<div :class="[$style.card, { [$style.focus]: focus }]">
+		<nuxt-link :to="path" :class="$style.link" @focus="focus = true" @blur="focus = false" />
+		<div :class="$style.title">{{ title }}</div>
+		<img :class="$style.image" :src="icon" v-if="icon" />
+		<div :class="$style.image" v-else>
+			<Icon :class="$style.icon" name="mdi:code-braces" />
+		</div>
 		<div :class="$style.description">
 			<span :class="$style.wrapper">{{ description }}</span>
 		</div>
@@ -41,9 +41,22 @@ const preparedLinks = computed(() => links?.filter(link => link.card && (link.ti
 .card {
 	border: 1px solid $border;
 	position: relative;
+	display: flex;
+	flex-direction: column;
+
+	&:hover,
+	&.focus {
+		border-color: $primary;
+	}
+
+	.link {
+		position: absolute;
+		inset: 0;
+	}
 
 	.title {
-		border-bottom: 1px solid $border;
+		border-bottom: 1px solid;
+		border-color: inherit;
 		font-weight: bold;
 		padding: .5em;
 		overflow: hidden;
@@ -58,12 +71,14 @@ const preparedLinks = computed(() => links?.filter(link => link.card && (link.ti
 		justify-content: center;
 		width: 100%;
 		aspect-ratio: 1;
-		border-bottom: 1px solid $border;
+		border-bottom: 1px solid;
+		border-color: inherit;
 
 		.icon {
 			width: 50%;
 			height: 50%;
 			color: $border;
+			z-index: -1;
 		}
 	}
 
@@ -88,6 +103,7 @@ const preparedLinks = computed(() => links?.filter(link => link.card && (link.ti
 		flex-direction: column;
 		gap: .5em;
 		justify-content: space-between;
+		flex: 1;
 
 		.line {
 			overflow: hidden;
@@ -95,6 +111,10 @@ const preparedLinks = computed(() => links?.filter(link => link.card && (link.ti
 			gap: .2em;
 			flex-wrap: wrap;
 		}
+	}
+
+	@media (prefers-reduced-motion: no-preference) {
+		transition: border-color .3s ease;
 	}
 }
 </style>
