@@ -6,6 +6,13 @@ function getFirst<T>(value: T | T[] | undefined): T | undefined {
 const path = '/' + (getFirst(useRoute().params.path) ?? '');
 const { data: project } = await useAsyncData(path, () => queryCollection('projects').path(path).first());
 
+if (!project.value) {
+	throw createError({
+		statusCode: 404,
+		statusMessage: 'Page Not Found'
+	})
+}
+
 useSeoMeta({
 	title: project.value?.title + " | " + useAppConfig().title,
 	description: project.value?.description
@@ -13,14 +20,14 @@ useSeoMeta({
 </script>
 
 <template>
-	<Container width="720px">
-		<img :class="$style.icon" :src="project?.icon" v-if="project?.icon" />
-		<ContentRenderer :value="project!" />
+	<Container width="720px" v-if="project">
+		<img :class="$style.icon" :src="project.icon" v-if="project.icon" />
+		<ContentRenderer :value="project" />
 		<div :class="$style.block">
-			<badge v-for="tag of project?.tags" :tag="tag" />
+			<badge v-for="tag of project.tags" :tag="tag" />
 		</div>
 		<div :class="$style.block">
-			<btn v-for="link of project?.links" :icon="link.icon" :text="link.title" :href="link.href"
+			<btn v-for="link of project.links" :icon="link.icon" :text="link.title" :href="link.href"
 				:style="{ backgroundColor: link.color }" />
 		</div>
 	</Container>

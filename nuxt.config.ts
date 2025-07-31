@@ -11,19 +11,9 @@ export default defineNuxtConfig({
   icon: {
     serverBundle: false,
     clientBundle: {
-      icons: [
-        'mdi:tag',
-        'mdi:magnify',
-        'mdi:menu-down',
-        'mdi:close-circle',
-        'mdi:code-braces',
-
-        'mdi:github',
-        'mdi:twitch',
-        'mdi:telegram',
-        'mdi:steam',
-      ],
-      scan: true
+      scan: {
+        globInclude: ['**/*.{vue,jsx,tsx,md,mdc,mdx,yml,yaml,js,ts}']
+      }
     }
   },
 })
