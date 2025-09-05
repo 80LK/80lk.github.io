@@ -32,6 +32,7 @@ const binds = computed(() => {
 			break;
 	}
 })
+const chars = computed(() => (text?.length ?? 0) + 'ch');
 
 function click(event: PointerEvent) {
 	if (href || to || onClick)
@@ -105,6 +106,7 @@ function click(event: PointerEvent) {
 		gap: 0px;
 
 		.inner {
+			// max-width: 0;
 			width: 0;
 		}
 
@@ -113,7 +115,9 @@ function click(event: PointerEvent) {
 			gap: var(--gap);
 
 			.inner {
+				// max-width: fit-content;
 				width: auto;
+				width: v-bind(chars);
 			}
 		}
 	}
@@ -127,6 +131,7 @@ function click(event: PointerEvent) {
 			transition: gap .3s ease;
 
 			.inner {
+				// transition: max-width .3s ease;
 				transition: width .3s ease;
 			}
 		}
