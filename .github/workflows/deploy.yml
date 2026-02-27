@@ -32,7 +32,7 @@ jobs:
           port: ${{ secrets.SERVER_SSH_PORT }}
           overwrite: true
           strip_components: 1
-          source: ".output/*"
+          source: ".output/public/*"
           target: ${{ secrets.SERVER_DIST }}
 
       - name: Restart app
