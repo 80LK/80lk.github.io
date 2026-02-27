@@ -6,7 +6,7 @@ export default defineNuxtConfig({
 
   modules: ['@nuxt/content', '@nuxt/icon'],
   nitro: {
-    preset: 'github-pages'
+    preset: 'static'
   },
   icon: {
     serverBundle: false,
