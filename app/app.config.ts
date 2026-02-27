@@ -33,6 +33,12 @@ export default defineAppConfig<AppConfig>({
 			href: 'https://t.me/tv80lk'
 		},
 		{
+			color: "#5865F2",
+			icon: "mdi:discord",
+			title: "Discrod",
+			href: "https://discord.gg/RQvw9psXDZ"
+		},
+		{
 			color: "#000000",
 			icon: 'mdi:steam',
 			title: 'steam',
